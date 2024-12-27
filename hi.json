@@ -1,9 +1,9 @@
-hianime_data = {
-    "name": "Hianime",
+{
+    "name": "HiAnime",
     "version": "1.0.0",
     "author": {
-        "name": "Paari",
-        "website": "https://hianime.to"
+        "name": "sobet",
+        "website": "https://hianime.to/"
     },
     "iconURL": "https://hianime.to/favicon.ico",
     "stream": "HLS",
@@ -12,9 +12,9 @@ hianime_data = {
     "module": [
         {
             "search": {
-                "url": "https://hianime.to/search",
-                "parameter": "q",
-                "documentSelector": "div.search-item",
+                "url": "https://hianime.to/search?keyword=",
+                "parameter": "keyword",
+                "documentSelector": "div.search-item div.result-item",
                 "title": "h3.title",
                 "image": {
                     "url": "img",
@@ -23,9 +23,9 @@ hianime_data = {
                 "href": "a"
             },
             "featured": {
-                "url": "https://hianime.to/featured",
-                "documentSelector": "div.featured-item",
-                "title": "h2.featured-title",
+                "url": "https://hianime.to/recently-updated",
+                "documentSelector": "div.featured div.item",
+                "title": "a.title",
                 "image": {
                     "url": "img",
                     "attribute": "src"
@@ -35,17 +35,17 @@ hianime_data = {
             "details": {
                 "baseURL": "https://hianime.to",
                 "aliases": {
-                    "selector": "div.aliases",
-                    "attribute": "text"
+                    "selector": "",
+                    "attribute": ""
                 },
-                "synopsis": "div.synopsis p",
-                "airdate": "span.airdate",
-                "stars": "span.rating"
+                "synopsis": "div.description p",
+                "airdate": "",
+                "stars": ""
             },
             "episodes": {
-                "selector": "div.episode-list a",
+                "selector": "div.episodes-container a",
                 "order": "ordered",
-                "pattern": "https://hianime.to/player/[\\w-]+\\?token=[\\w]+&expires=\\d+"
+                "pattern": ""
             }
         }
     ]
