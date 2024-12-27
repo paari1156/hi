@@ -12,18 +12,22 @@
     "module": [
         {
             {
-            "search": {
-                "url": "https://hianime.to/search?keyword=",
-                "parameter": "keyword",
-                "documentSelector": "div.search-result div.item",
-                "title": "a.title",
-                "image": {
-                    "url": "img.poster",
-                    "attribute": "src"
-                },
-                "href": "a"
-            }
+{
+    "search": {
+        "url": "https://hianime.to/search?keyword=",
+        "parameter": "query",
+        "documentSelector": "div.search-result div.item",
+        "title": "a.title",
+        "image": {
+            "url": "img.poster",
+            "attribute": "src"
         },
+        "href": "a"
+    },
+    "preprocessQuery": {
+        "replaceSpacesWith": "+"
+    }
+}
             "featured": {
                 "url": "https://hianime.to/recently-updated",
                 "documentSelector": "div.featured div.item",
