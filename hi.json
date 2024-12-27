@@ -14,13 +14,13 @@
             "search": {
                 "url": "https://hianime.to/search?keyword=",
                 "parameter": "keyword",
-                "documentSelector": "div.search-result div.item",
+                "documentSelector": "div.search-result div.result-item",
                 "title": "a.title",
                 "image": {
-                    "url": "img.poster",
+                    "url": "img",
                     "attribute": "src"
                 },
-                "href": "a.link"
+                "href": "a"
             },
             "featured": {
                 "url": "https://hianime.to/recently-updated",
@@ -30,7 +30,7 @@
                     "url": "img",
                     "attribute": "src"
                 },
-                "href": "a.link"
+                "href": "a"
             },
             "details": {
                 "baseURL": "https://hianime.to",
