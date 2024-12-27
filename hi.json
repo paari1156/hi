@@ -11,6 +11,7 @@
     "extractor": "normal",
     "module": [
         {
+            {
             "search": {
                 "url": "https://hianime.to/search?keyword=",
                 "parameter": "keyword",
@@ -20,8 +21,9 @@
                     "url": "img.poster",
                     "attribute": "src"
                 },
-                "href": "a.link"
-            },
+                "href": "a"
+            }
+        },
             "featured": {
                 "url": "https://hianime.to/recently-updated",
                 "documentSelector": "div.featured div.item",
