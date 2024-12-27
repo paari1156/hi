@@ -6,16 +6,16 @@
         "website": "https://hianime.to/"
     },
     "iconURL": "https://hianime.to/favicon.ico",
-    "stream": "HLS",
+    "stream": "MP4",
     "language": "EN",
-    "extractor": "pattern-mp4",
+    "extractor": "normal",
     "module": [
         {
             "search": {
                 "url": "https://hianime.to/search?keyword=",
                 "parameter": "keyword",
-                "documentSelector": "div.search-item div.result-item",
-                "title": "h3.title",
+                "documentSelector": "div.search-result div.result-item",
+                "title": "a.title",
                 "image": {
                     "url": "img",
                     "attribute": "src"
