@@ -2,49 +2,49 @@
     "name": "HiAnime",
     "version": "1.0.0",
     "author": {
-        "name": "paari",
-        "website": "https://google.com"
+        "name": "sobet",
+        "website": "https://hianime.to/"
     },
-    "iconURL": "https://raw.githubusercontent.com/cranci1/Ryu/7c3fb5e9818ede277f76955eb4fcbf5096c47d7c/Ryu/Assets.xcassets/Sources/AniVibe.imageset/anivibe.jpg",
-    "stream": "HLS",
+    "iconURL": "https://hianime.to/favicon.ico",
+    "stream": "MP4",
     "language": "EN",
-    "extractor": "dub-sub",
+    "extractor": "normal",
     "module": [
         {
             "search": {
-                "url": "https://hianime.to/search?keyword=+",
+                "url": "https://hianime.to/search?keyword=",
                 "parameter": "keyword",
-                "documentSelector": "div.listupd article",
-                "title": "div.tt span",
+                "documentSelector": "div.search-result div.item",
+                "title": "a.title",
                 "image": {
-                    "url": "img",
+                    "url": "img.poster",
                     "attribute": "src"
                 },
-                "href": "a"
+                "href": "a.link"
             },
             "featured": {
                 "url": "https://hianime.to/recently-updated",
-                "documentSelector": "div.listupd article",
-                "title": "div.tt span",
+                "documentSelector": "div.featured div.item",
+                "title": "a.title",
                 "image": {
                     "url": "img",
                     "attribute": "src"
                 },
-                "href": "a"
+                "href": "a.link"
             },
             "details": {
                 "baseURL": "https://hianime.to",
                 "aliases": {
-                    "selector": "div.post-title h1",
-                    "attribute": "text"
+                    "selector": "",
+                    "attribute": ""
                 },
-                "synopsis": "div.entry-content",
-                "airdate": "div.post-meta span:contains(Aired) + span",
-                "stars": "div.post-meta span:contains(Rating) + span"
+                "synopsis": "div.description p",
+                "airdate": "",
+                "stars": ""
             },
             "episodes": {
-                "selector": "div.eplister ul li a",
-                "order": "reversed",
+                "selector": "div.episodes-container a",
+                "order": "ordered",
                 "pattern": ""
             }
         }
