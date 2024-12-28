@@ -49,7 +49,7 @@
                 "title": "a",
                 "image": {
                     "url": "img",
-                    "attribute": "src"
+                    "attribute": "data-src"
                 },
                 "href": "a"
             },
