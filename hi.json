@@ -1,70 +1,98 @@
 {
-    "name": "HiAnime",
-    "version": "1.0.0",
-    "author": {
-        "name": "sobet",
-        "website": "https://google.com"
-    },
-    "iconURL": "https://hianime.to/images/logo.png",
-    "stream": "HLS",
-    "language": "EN",
-    "extractor": "pattern-hls",
-    "module": [
-        {
-            "search": {
-                "url": "https://hianime.to/search?keyword=",
-                "parameter": "keyword",
-                "documentSelector": "div.flw-item",
-                "title": "h3.film-name > a",
-                "image": {
-                    "url": "img.film-poster-img",
-                    "attribute": "data-src"
-                },
-                "href": "h3.film-name > a"
-            },
-            "featured": {
-                "url": "https://hianime.to/home",
-                "documentSelector": "div.flw-item",
-                "title": "h3.film-name > a",
-                "image": {
-                    "url": "img.film-poster-img",
-                    "attribute": "data-src"
-                },
-                "href": "h3.film-name > a"
-            },
-            "details": {
-                "baseURL": "https://hianime.to",
-                "aliases": {
-                    "selector": "h2.film-name",
-                    "attribute": "text"
-                },
-                "synopsis": "div.film-description",
-                "airdate": "span:contains('Released:')",
-                "stars": "span:contains('Rating:')"
-            },
-            "episodes": {
-                "selector": "div.ss-list a.ssl-item.ep-item",
-                "title": "attr(title)",
-                "href": "attr(href)",
-                "number": "attr(data-number)",
-                "order": "ordered"
-            },
-            "video": {
-                "selector": "iframe#iframe-embed",
-                "attribute": "src"
-            },
-            "subDub": {
-                "sub": {
-                    "selector": "div.ps.-list div.item[data-type='sub']",
-                    "activeSelector": "a.btn.active",
-                    "idAttribute": "data-id"
-                },
-                "dub": {
-                    "selector": "div.ps.-block-sub.servers-dub div.item[data-type='dub']",
-                    "activeSelector": "a.btn.active",
-                    "idAttribute": "data-id"
-                }
-            }
+  "name": "HiAnime",
+  "version": "1.0.0",
+  "author": {
+    "name": "sobet",
+    "website": "https://google.com"
+  },
+  "iconURL": "https://hianime.to/images/logo.png",
+  "stream": "HLS",
+  "language": "EN",
+  "extractor": "pattern-hls",
+  "module": [
+    {
+      "search": {
+        "url": "https://hianime.to/search?keyword=",
+        "parameter": "keyword",
+        "documentSelector": "div.flw-item",
+        "title": "h3.film-name > a",
+        "image": {
+          "url": "img.film-poster-img",
+          "attribute": "data-src"
+        },
+        "href": "h3.film-name > a"
+      },
+      "featured": {
+        "url": "https://hianime.to/home",
+        "documentSelector": "div.flw-item",
+        "title": "h3.film-name > a",
+        "image": {
+          "url": "img.film-poster-img",
+          "attribute": "data-src"
+        },
+        "href": "h3.film-name > a"
+      },
+      "details": {
+        "baseURL": "https://hianime.to",
+        "aliases": {
+          "selector": "h2.film-name",
+          "attribute": "text"
+        },
+        "synopsis": "div.film-description",
+        "airdate": "span:contains('Released:')",
+        "stars": "span:contains('Rating:')"
+      },
+      "episodes": {
+        "selector": "div.ss-list .ssl-item",
+        "order": "ordered",
+        "pattern": "https://megacloud\\.tv/embed-2/e-\\d+/[\\w]+\\?k1=.*?(?=\\\")",
+        "title": {
+          "selector": "title",
+          "attribute": "text"
+        },
+        "number": {
+          "selector": "data-number",
+          "attribute": "text"
+        },
+        "id": {
+          "selector": "data-id",
+          "attribute": "text"
         }
-    ]
+      },
+      "servers": {
+        "sub": {
+          "selector": "div.servers-sub .server-item",
+          "title": "a.btn",
+          "id": {
+            "selector": "data-id",
+            "attribute": "text"
+          },
+          "type": {
+            "selector": "data-type",
+            "attribute": "text"
+          },
+          "serverId": {
+            "selector": "data-server-id",
+            "attribute": "text"
+          }
+        },
+        "dub": {
+          "selector": "div.servers-dub .server-item",
+          "title": "a.btn",
+          "id": {
+            "selector": "data-id",
+            "attribute": "text"
+          },
+          "type": {
+            "selector": "data-type",
+            "attribute": "text"
+          },
+          "serverId": {
+            "selector": "data-server-id",
+            "attribute": "text"
+          }
+        }
+      }
+    }
+  ]
 }
