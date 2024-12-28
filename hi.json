@@ -1,6 +1,6 @@
 {
     "name": "HiAnime",
-    "version": "1.0.5",
+    "version": "1.0.2",
     "author": {
         "name": "sobet",
         "website": "https://google.com"
@@ -43,19 +43,13 @@
                 "stars": "span:contains('Rating:')"
             },
             "episodes": {
-                "selector": "div#episodes-page-1 div.episodes-ul > li > a",
+                "selector": "div#episodes-page-1 ul.episodes-ul > li > a",
                 "order": "ordered",
-                "href": {
-                    "attribute": "href",
-                    "prefix": "https://hianime.to"
-                }
+                "pattern": "https://[^\\s\"']+\\.(?:m3u8|mp4)(\\?token=[^\\s\"']+)?"
             },
             "video": {
-                "selector": "div#player iframe",
-                "url": {
-                    "attribute": "src",
-                    "prefix": "https://hianime.to"
-                }
+                "baseURL": "",
+                "pattern": "https://[^\\s\"']+\\.(?:m3u8|mp4)(\\?token=[^\\s\"']+)?"
             }
         }
     ]
