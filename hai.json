@@ -1,0 +1,52 @@
+{
+    "name": "HiAnime",
+    "version": "1.0.1",
+    "author": {
+        "name": "sobet",
+        "website": "https://google.com"
+    },
+    "iconURL": "https://hianime.to/images/logo.png",
+    "stream": "HLS",
+    "language": "EN",
+    "extractor": "normal",
+    "module": [
+        {
+            "search": {
+                "url": "https://hianime.to/search?keyword=",
+                "parameter": "keyword",
+                "documentSelector": "div.flw-item",
+                "title": "h3.film-name > a",
+                "image": {
+                    "url": "img.film-poster-img",
+                    "attribute": "data-src"
+                },
+                "href": "h3.film-name > a"
+            },
+            "featured": {
+                "url": "https://hianime.to/home",
+                "documentSelector": "div.flw-item",
+                "title": "h3.film-name > a",
+                "image": {
+                    "url": "img.film-poster-img",
+                    "attribute": "data-src"
+                },
+                "href": "h3.film-name > a"
+            },
+            "details": {
+                "baseURL": "https://hianime.to",
+                "aliases": {
+                    "selector": "h2.film-name",
+                    "attribute": "text"
+                },
+                "synopsis": "div.film-description",
+                "airdate": "span:contains('Released:')",
+                "stars": "span:contains('Rating:')"
+            },
+            "episodes": {
+                "selector": ".ss-list .ssl-item",
+                "order": "ordered",
+                "pattern": ""
+            }
+        }
+    ]
+}
