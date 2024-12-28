@@ -43,9 +43,9 @@
                 "stars": "span.item:contains(Rating:)"
             },
             "episodes": {
-                "selector": "div#episodes-page-1 div.episodes-ul a",
+                "selector": "a.ep-item",
                 "order": "ordered",
-                "pattern": "https://[^\"]*\\.(?:m3u8|mp4)\\?token=[^\"]*"
+                "pattern": "(http|https)://[^\\s<>\"]+?(?:\\?token=[^\\s<>\"]+)?(?:\\.m3u8|\\.mp4)"
             }
         }
     ]
