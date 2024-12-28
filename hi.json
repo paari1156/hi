@@ -2,50 +2,50 @@
     "name": "HiAnime",
     "version": "1.0.0",
     "author": {
-        "name": "paari",
+        "name": "sobet",
         "website": "https://google.com"
     },
     "iconURL": "https://hianime.to/images/logo.png",
     "stream": "HLS",
     "language": "EN",
-    "extractor": "normal",
+    "extractor": "pattern-hls",
     "module": [
         {
             "search": {
                 "url": "https://hianime.to/search?keyword=",
                 "parameter": "keyword",
-                "documentSelector": "div.film_list-wrap div.flw-item",
-                "title": "div.film-poster a",
+                "documentSelector": "div.flw-item",
+                "title": "h3.film-name a",
                 "image": {
-                    "url": "div.film-poster img",
-                    "attribute": "src"
+                    "url": "img.film-poster-img",
+                    "attribute": "data-src"
                 },
-                "href": "div.film-poster a"
+                "href": "h3.film-name a"
             },
             "featured": {
                 "url": "https://hianime.to/home",
-                "documentSelector": "div.film_list-wrap div.flw-item",
-                "title": "div.film-poster a",
+                "documentSelector": "div.flw-item",
+                "title": "h3.film-name a",
                 "image": {
-                    "url": "div.film-poster img",
-                    "attribute": "src"
+                    "url": "img.film-poster-img",
+                    "attribute": "data-src"
                 },
-                "href": "div.film-poster a"
+                "href": "h3.film-name a"
             },
             "details": {
                 "baseURL": "https://hianime.to",
                 "aliases": {
                     "selector": "h2.film-name",
-                    "attribute": "data-jname"
+                    "attribute": "text"
                 },
                 "synopsis": "div.film-description",
-                "airdate": "div.meta-data span.item:contains(Released)",
-                "stars": "div.meta-data span.item:contains(Rating)"
+                "airdate": "span.item:contains(Released:)",
+                "stars": "span.item:contains(Rating:)"
             },
             "episodes": {
-                "selector": "div.ss-list a.ep-item",
+                "selector": "a.ep-item",
                 "order": "ordered",
-                "pattern": "https://[\\w.-]+/[\\w.-]+/[\\w]{32}/master\\.m3u8"
+                "pattern": "https://[A-z0-9.-]+/[A-z0-9/_-]+\\.m3u8"
             }
         }
     ]
