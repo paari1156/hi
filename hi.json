@@ -43,53 +43,38 @@
         "stars": "span:contains('Rating:')"
       },
       "episodes": {
-        "selector": ".ss-list a.ssl-item",
-        "title": {
-          "selector": "",
-          "attribute": "title"
-        },
-        "href": {
-          "selector": "",
-          "attribute": "href"
-        },
-        "number": {
-          "selector": "",
-          "attribute": "data-number"
-        },
-        "id": {
-          "selector": "",
-          "attribute": "data-id"
-        }
-      },
-      "video": {
-        "selector": "#iframe-embed",
-        "attribute": "src"
-      },
-      "servers": {
-        "sub": {
-          "selector": ".servers-sub .server-item",
-          "title": "a.btn",
-          "id": {
-            "selector": "",
-            "attribute": "data-id"
-          },
-          "serverId": {
-            "selector": "",
-            "attribute": "data-server-id"
+        "baseURL": "https://hianime.to",
+        "listSelector": ".ss-list",
+        "elementSelector": "a.ssl-item",
+        "elementDataAttribute": [
+          {
+            "title": "title",
+            "text": "title",
+            "number": "data-number",
+            "id": "data-id",
+            "url": "href"
           }
-        },
-        "dub": {
-          "selector": ".servers-dub .server-item",
-          "title": "a.btn",
-          "id": {
-            "selector": "",
-            "attribute": "data-id"
+        ]
+      },
+      "media": {
+        "type": [
+          {
+            "name": "sub",
+            "selector": ".servers-sub .server-item",
+            "typeSelector": "[data-type='sub']"
           },
-          "serverId": {
-            "selector": "",
-            "attribute": "data-server-id"
+          {
+            "name": "dub",
+            "selector": ".servers-dub .server-item",
+            "typeSelector": "[data-type='dub']"
           }
-        }
+        ],
+        "quality": [
+          {
+            "name": "AUTO",
+            "pattern": "https://megacloud\\.tv/embed-2/e-\\d+/[\\w]+\\?k1=.*?(?=\\\")"
+          }
+        ]
       }
     }
   ]
