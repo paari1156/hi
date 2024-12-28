@@ -44,22 +44,26 @@
             },
             "episodes": {
                 "selector": "div.ss-list a.ssl-item.ep-item",
-                "order": "ordered",
                 "title": "attr(title)",
                 "href": "attr(href)",
-                "number": "attr(data-number)"
+                "number": "attr(data-number)",
+                "order": "ordered"
             },
             "video": {
-                "iframeSelector": "div.player-frame iframe#iframe-embed",
-                "srcAttribute": "src",
-                "pattern": "https://[^\\\"]*\\.(?:m3u8|mp4)\\?token=[^\\\"]*"
+                "selector": "iframe#iframe-embed",
+                "attribute": "src"
             },
             "subDub": {
-                "subSelector": "div.ps.-list div.item[data-type='sub'] a",
-                "dubSelector": "div.ps.-block-sub.servers-dub div.item[data-type='dub'] a",
-                "subAttribute": "data-id",
-                "dubAttribute": "data-id",
-                "activeClass": "btn.active"
+                "sub": {
+                    "selector": "div.ps.-list div.item[data-type='sub']",
+                    "activeSelector": "a.btn.active",
+                    "idAttribute": "data-id"
+                },
+                "dub": {
+                    "selector": "div.ps.-block-sub.servers-dub div.item[data-type='dub']",
+                    "activeSelector": "a.btn.active",
+                    "idAttribute": "data-id"
+                }
             }
         }
     ]
