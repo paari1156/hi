@@ -1,81 +1,52 @@
 {
-  "name": "HiAnime",
-  "version": "1.0.0",
-  "author": {
-    "name": "sobet",
-    "website": "https://google.com"
-  },
-  "iconURL": "https://hianime.to/images/logo.png",
-  "stream": "HLS",
-  "language": "EN",
-  "extractor": "pattern-hls",
-  "module": [
-    {
-      "search": {
-        "url": "https://hianime.to/search?keyword=",
-        "parameter": "keyword",
-        "documentSelector": "div.flw-item",
-        "title": "h3.film-name > a",
-        "image": {
-          "url": "img.film-poster-img",
-          "attribute": "data-src"
+    "name": "HiAnime",
+    "version": "1.0.0",
+    "author": {
+        "name": "sobet",
+        "website": "https://google.com"
+    },
+    "iconURL": "https://hianime.to/images/logo.png",
+    "stream": "HLS",
+    "language": "EN",
+    "extractor": "pattern-hls",
+    "module": {
+        "search": {
+            "url": "https://hianime.to/search?keyword=",
+            "parameter": "keyword",
+            "documentSelector": "div.flw-item",
+            "title": "h3.film-name > a",
+            "image": {
+                "url": "img.film-poster-img",
+                "attribute": "data-src"
+            },
+            "href": "h3.film-name > a"
         },
-        "href": "h3.film-name > a"
-      },
-      "featured": {
-        "url": "https://hianime.to/home",
-        "documentSelector": "div.flw-item",
-        "title": "h3.film-name > a",
-        "image": {
-          "url": "img.film-poster-img",
-          "attribute": "data-src"
+        "featured": {
+            "url": "https://hianime.to/home",
+            "documentSelector": "div.flw-item",
+            "title": "h3.film-name > a",
+            "image": {
+                "url": "img.film-poster-img",
+                "attribute": "data-src"
+            },
+            "href": "h3.film-name > a"
         },
-        "href": "h3.film-name > a"
-      },
-      "details": {
-        "baseURL": "https://hianime.to",
-        "aliases": {
-          "selector": "h2.film-name",
-          "attribute": "text"
+        "details": {
+            "baseURL": "https://hianime.to",
+            "aliases": {
+                "selector": "h2.film-name",
+                "attribute": "text"
+            },
+            "synopsis": "div.film-description",
+            "airdate": "span:contains('Released:')",
+            "stars": "span:contains('Rating:')"
         },
-        "synopsis": "div.film-description",
-        "airdate": "span:contains('Released:')",
-        "stars": "span:contains('Rating:')"
-      },
-      "episodes": {
-        "baseURL": "https://hianime.to",
-        "listSelector": ".ss-list",
-        "elementSelector": "a.ssl-item",
-        "elementDataAttribute": [
-          {
+        "episodes": {
+            "selector": ".ss-list .ssl-item",
+            "url": "",
             "title": "title",
-            "text": "title",
-            "number": "data-number",
-            "id": "data-id",
-            "url": "href"
-          }
-        ]
-      },
-      "media": {
-        "type": [
-          {
-            "name": "sub",
-            "selector": ".servers-sub .server-item",
-            "typeSelector": "[data-type='sub']"
-          },
-          {
-            "name": "dub",
-            "selector": ".servers-dub .server-item",
-            "typeSelector": "[data-type='dub']"
-          }
-        ],
-        "quality": [
-          {
-            "name": "AUTO",
-            "pattern": "https://megacloud\\.tv/embed-2/e-\\d+/[\\w]+\\?k1=.*?(?=\\\")"
-          }
-        ]
-      }
+            "imageURL": "",
+            "episode": "data-number"
+        }
     }
-  ]
 }
