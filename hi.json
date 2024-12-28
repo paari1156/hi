@@ -1,6 +1,6 @@
 {
     "name": "HiAnime",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "author": {
         "name": "sobet",
         "website": "https://google.com"
@@ -39,13 +39,17 @@
                     "attribute": "text"
                 },
                 "synopsis": "div.film-description",
-                "airdate": "span.item:contains('Released:')",
-                "stars": "span.item:contains('Rating:')"
+                "airdate": "span:contains('Released:')",
+                "stars": "span:contains('Rating:')"
             },
             "episodes": {
-                "selector": "div#episodes-page-1 div.episodes-ul > li > a",
+                "selector": "div#episodes-page-1 ul.episodes-ul > li > a",
                 "order": "ordered",
-                "pattern": "(https://.*?\\.(?:m3u8|mp4)\\?token=[^\"\\s]*)"
+                "pattern": "https://[^\\s\"']+\\.(?:m3u8|mp4)(\\?token=[^\\s\"']+)?"
+            },
+            "video": {
+                "baseURL": "",
+                "pattern": "https://[^\\s\"']+\\.(?:m3u8|mp4)(\\?token=[^\\s\"']+)?"
             }
         }
     ]
