@@ -43,11 +43,23 @@
                 "stars": "span:contains('Rating:')"
             },
             "episodes": {
-                "selector": "div#episodes-page-1 div.episodes-ul a",
-                "order": "reversed",
-                "pattern": "https://[^\"]*\\.(?:m3u8|mp4)\\?token=[^\"]*",
-                "title": "a",
-                "href": "href"
+                "selector": "div.ss-list a.ssl-item.ep-item",
+                "order": "ordered",
+                "title": "attr(title)",
+                "href": "attr(href)",
+                "number": "attr(data-number)"
+            },
+            "video": {
+                "iframeSelector": "div.player-frame iframe#iframe-embed",
+                "srcAttribute": "src",
+                "pattern": "https://[^\\\"]*\\.(?:m3u8|mp4)\\?token=[^\\\"]*"
+            },
+            "subDub": {
+                "subSelector": "div.ps.-list div.item[data-type='sub'] a",
+                "dubSelector": "div.ps.-block-sub.servers-dub div.item[data-type='dub'] a",
+                "subAttribute": "data-id",
+                "dubAttribute": "data-id",
+                "activeClass": "btn.active"
             }
         }
     ]
