@@ -1,6 +1,6 @@
 {
     "name": "HiAnime",
-    "version": "1.0.6",
+    "version": "1.0.7",
     "author": {
         "name": "sobet",
         "website": "https://google.com"
@@ -43,7 +43,7 @@
                 "stars": "span:contains('Rating:')"
             },
             "episodes": {
-                "selector": "div#episodes-page-1 div.episodes-ul > li > a",
+                "selector": "div#episodes-page-1 div.episodes-ul a",
                 "order": "ordered",
                 "pattern": "https://hianime.to/[^\\\"]*",
                 "title": "a",
