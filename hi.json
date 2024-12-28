@@ -2,11 +2,11 @@
     "name": "HiAnime",
     "version": "1.0.0",
     "author": {
-        "name": "sobet",
+        "name": "paari",
         "website": "https://google.com"
     },
     "iconURL": "https://hianime.to/images/logo.png",
-    "stream": "MP4",
+    "stream": "HLS",
     "language": "EN",
     "extractor": "normal",
     "module": [
@@ -15,22 +15,22 @@
                 "url": "https://hianime.to/search?keyword=",
                 "parameter": "keyword",
                 "documentSelector": "div.film_list-wrap div.flw-item",
-                "title": "h3.film-name",
+                "title": "div.film-poster a",
                 "image": {
-                    "url": "img.film-poster-img",
+                    "url": "div.film-poster img",
                     "attribute": "src"
                 },
-                "href": "a.dynamic-name"
+                "href": "div.film-poster a"
             },
             "featured": {
                 "url": "https://hianime.to/home",
                 "documentSelector": "div.film_list-wrap div.flw-item",
-                "title": "h3.film-name",
+                "title": "div.film-poster a",
                 "image": {
-                    "url": "img.film-poster-img",
+                    "url": "div.film-poster img",
                     "attribute": "src"
                 },
-                "href": "a.dynamic-name"
+                "href": "div.film-poster a"
             },
             "details": {
                 "baseURL": "https://hianime.to",
@@ -45,7 +45,7 @@
             "episodes": {
                 "selector": "div.ss-list a.ep-item",
                 "order": "ordered",
-                "pattern": ""
+                "pattern": "https://[\\w.-]+/[\\w.-]+/[\\w]{32}/master\\.m3u8"
             }
         }
     ]
