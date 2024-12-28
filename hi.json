@@ -1,6 +1,6 @@
 {
     "name": "HiAnime",
-    "version": "1.0.5",
+    "version": "1.0.6",
     "author": {
         "name": "sobet",
         "website": "https://google.com"
@@ -45,10 +45,13 @@
             "episodes": {
                 "selector": "div#episodes-page-1 div.episodes-ul > li > a",
                 "order": "ordered",
-                "href": {
-                    "attribute": "href",
-                    "prefix": "https://hianime.to"
-                }
+                "pattern": "https://hianime.to/[^\\\"]*",
+                "title": "a",
+                "image": {
+                    "url": "img",
+                    "attribute": "src"
+                },
+                "href": "a"
             },
             "video": {
                 "selector": "div#player iframe",
