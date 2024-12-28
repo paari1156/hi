@@ -43,53 +43,51 @@
         "stars": "span:contains('Rating:')"
       },
       "episodes": {
-        "selector": "div.ss-list .ssl-item",
-        "order": "ordered",
-        "pattern": "https://megacloud\\.tv/embed-2/e-\\d+/[\\w]+\\?k1=.*?(?=\\\")",
+        "selector": ".ss-list a.ssl-item",
         "title": {
-          "selector": "title",
-          "attribute": "text"
+          "selector": "",
+          "attribute": "title"
+        },
+        "href": {
+          "selector": "",
+          "attribute": "href"
         },
         "number": {
-          "selector": "data-number",
-          "attribute": "text"
+          "selector": "",
+          "attribute": "data-number"
         },
         "id": {
-          "selector": "data-id",
-          "attribute": "text"
+          "selector": "",
+          "attribute": "data-id"
         }
+      },
+      "video": {
+        "selector": "#iframe-embed",
+        "attribute": "src"
       },
       "servers": {
         "sub": {
-          "selector": "div.servers-sub .server-item",
+          "selector": ".servers-sub .server-item",
           "title": "a.btn",
           "id": {
-            "selector": "data-id",
-            "attribute": "text"
-          },
-          "type": {
-            "selector": "data-type",
-            "attribute": "text"
+            "selector": "",
+            "attribute": "data-id"
           },
           "serverId": {
-            "selector": "data-server-id",
-            "attribute": "text"
+            "selector": "",
+            "attribute": "data-server-id"
           }
         },
         "dub": {
-          "selector": "div.servers-dub .server-item",
+          "selector": ".servers-dub .server-item",
           "title": "a.btn",
           "id": {
-            "selector": "data-id",
-            "attribute": "text"
-          },
-          "type": {
-            "selector": "data-type",
-            "attribute": "text"
+            "selector": "",
+            "attribute": "data-id"
           },
           "serverId": {
-            "selector": "data-server-id",
-            "attribute": "text"
+            "selector": "",
+            "attribute": "data-server-id"
           }
         }
       }
