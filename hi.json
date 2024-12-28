@@ -1,6 +1,6 @@
 {
     "name": "HiAnime",
-    "version": "1.0.8",
+    "version": "1.0.9",
     "author": {
         "name": "sobet",
         "website": "https://google.com"
@@ -46,16 +46,24 @@
                 "script": [
                     {
                         "type": "text/javascript",
-                        "code": "(() => { \n" +
-                                "let episodes = [];\n" +
-                                "const episodeLinks = document.querySelectorAll('div#episodes-page-1 div.episodes-ul a');\n" +
-                                "episodeLinks.forEach(link => {\n" +
-                                "   let episode = {};\n" +
-                                "   episode.title = link.querySelector('a').textContent.trim();\n" +
-                                "   episode.href = link.href;\n" +
-                                "   episodes.push(episode);\n" +
-                                "});\n" +
-                                "return episodes;\n" +
+                        "code": "(() => {\n" +
+                                "    let episodes = [];\n" +
+                                "    fetch(window.location.href)\n" +
+                                "        .then(response => response.text())\n" +
+                                "        .then(html => {\n" +
+                                "            let parser = new DOMParser();\n" +
+                                "            let doc = parser.parseFromString(html, 'text/html');\n" +
+                                "            let episodeLinks = doc.querySelectorAll('div#episodes-page-1 div.episodes-ul a');\n" +
+                                "            episodeLinks.forEach(link => {\n" +
+                                "                let episode = {};\n" +
+                                "                episode.title = link.textContent.trim();\n" +
+                                "                episode.href = link.href;\n" +
+                                "                episodes.push(episode);\n" +
+                                "            });\n" +
+                                "            return episodes;\n" +
+                                "        })\n" +
+                                "        .catch(error => { console.error('Error loading episodes:', error); });\n" +
+                                "    return episodes;\n" +
                                 "})();"
                     }
                 ]
