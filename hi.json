@@ -1,6 +1,6 @@
 {
     "name": "HiAnime",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "author": {
         "name": "sobet",
         "website": "https://google.com"
@@ -52,7 +52,7 @@
             },
             "video": {
                 "baseURL": "",
-                "pattern": "https://.*?\\.(?:m3u8|mp4)(\\?token=[^\\s\"']+)?"
+                "script": "async function fetchVideoURL(url) { const response = await fetch(url); const html = await response.text(); const parser = new DOMParser(); const doc = parser.parseFromString(html, 'text/html'); const videoPattern = /https:\\/\\/.*?\\.(m3u8|mp4)(\\?token=.*?)?/g; const matches = html.match(videoPattern); return matches ? matches[0] : null; }"
             }
         }
     ]
